@@ -1,0 +1,29 @@
+<h1>Hello World</h1>
+<%= current_user.role.name %>
+<table class="table table-striped table-bordered table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th>User Id</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Leave Reason</th>
+        <th>Status</th>
+        <th>Description</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @leave_applications.each do |leave_application| %>
+        <tr>
+          <td><%= leave_application.user_id %></td>
+          <td><%= leave_application.start_date %></td> 
+          <td><%= leave_application.end_date %></td>
+          <td><%= leave_application.leave_reason %></td>
+          <td><%= leave_application.status %></td>
+          <td><%= leave_application.description %></td>
+          <td><%= link_to "Submit Result", edit_leave_application_path(leave_application), class: "btn" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

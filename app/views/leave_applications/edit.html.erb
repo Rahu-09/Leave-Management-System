@@ -1,0 +1,18 @@
+<h1>Want to permit Leave or not</h1>
+
+<%= form_with(model: @leave_application) do |form| %>
+
+  <div>
+    <%= form.label :status, style: "display: block" %>
+    <%= form.select :status, ['Pending', 'Accepted', 'Rejected'] %>
+  </div>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div>
+    <%= form.submit "Result" %>
+  </div>
+<% end %>

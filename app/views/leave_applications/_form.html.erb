@@ -1,0 +1,33 @@
+<%= form_with(model: @leave_application) do |form| %>
+
+  <div>
+    <%= form.label :start_date, style: "display: block" %>
+    <%= form.text_field :start_date %>
+  </div>
+
+  <div>
+    <%= form.label :end_date, style: "display: block" %>
+    <%= form.text_field :end_date %>
+  </div>
+
+  <div>
+    <%= form.label :leave_reason, style: "display: block" %>
+    <%= form.text_area :leave_reason %>
+  </div>
+
+  <div>
+    <%= form.hidden_field :status, value:"Pending" %>
+  </div>
+
+  <div>
+    <%= form.hidden_field :description, value:"Leader has not responded" %>
+  </div>
+
+  <div>
+    <%= form.hidden_field :user_id, value:current_user.id %>
+  </div>
+
+  <div>
+    <%= form.submit "Apply Leave" %>
+  </div>
+<% end %>
