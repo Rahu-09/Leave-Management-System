@@ -74,3 +74,4 @@ end
 gem 'devise'
 gem 'awesome_print'
 gem 'faker'
+gem 'pry'

@@ -1,2 +1,33 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h3>About Company</h3>
+<br>
+<div class="col-md-8">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Company Name</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      <%=@company.name%>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Company Description</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      <%=@company.description%>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Company Email</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      <%=@company.email%>
+                    </div>
+                  </div>
+                </div>
+              </div>

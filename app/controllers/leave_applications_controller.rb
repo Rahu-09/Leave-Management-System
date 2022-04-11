@@ -25,7 +25,7 @@ class LeaveApplicationsController < ApplicationController
     end
     
     def update
-        @leave_application = LeaveApplication.find(params[:id])
+    @leave_application = LeaveApplication.find(params[:id])
     
         if @leave_application.update(leave_approver_params)
           redirect_to leave_applications_path
@@ -41,10 +41,10 @@ class LeaveApplicationsController < ApplicationController
     end
     
     private
-        def leave_application_params
-            params.require(:leave_application).permit(:start_date, :end_date, :leave_reason, :user_id, :description, :status)
-        end
-        def leave_approver_params
-            params.require(:leave_application).permit(:description, :status)
-        end
+    def leave_application_params
+        params.require(:leave_application).permit(:start_date, :end_date, :leave_reason, :leave_type_id, :user_id, :description, :status)
+    end
+    def leave_approver_params
+        params.require(:leave_application).permit(:description, :status)
+    end
 end

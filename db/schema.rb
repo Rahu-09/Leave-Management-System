@@ -31,7 +31,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_09_073445) do
   create_table "leave_applications", force: :cascade do |t|
     t.string "start_date"
     t.string "end_date"
-    t.string "leave_type"
+    t.integer "leave_type_id"
     t.text "leave_reason"
     t.string "status"
     t.text "description"

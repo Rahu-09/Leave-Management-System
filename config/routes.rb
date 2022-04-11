@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   get 'home/profile'
   get 'home/holiday'
   get 'leave_applications/approver'
-
   resources :leave_applications
   # get 'leave/index'
   # get 'leave/new'

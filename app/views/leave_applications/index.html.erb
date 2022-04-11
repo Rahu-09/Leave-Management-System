@@ -7,6 +7,7 @@
         <th>Start Date</th>
         <th>End Date</th>
         <th>Leave Reason</th>
+        <th>Leave Type</th>
         <th>Status</th>
         <th>Description</th>
         <th></th>
@@ -21,9 +22,12 @@
           <td><%= leave_application.start_date %></td> 
           <td><%= leave_application.end_date %></td>
           <td><%= leave_application.leave_reason %></td>
+          <td><%= leave_application.leave_type.name %></td>
           <td><%= leave_application.status %></td>
           <td><%= leave_application.description %></td>
-          <td><%= button_to 'Delete', leave_application, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn" %></td>
+          <% unless leave_application.status == "Accepted" or leave_application.status == "Rejected" %>
+            <td><%= button_to 'Delete', leave_application, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn" %></td>
+          <% end %>
       </tr>
       <% end %>
     <% end %>

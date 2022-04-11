@@ -1,33 +1,43 @@
-<%= form_with(model: @leave_application) do |form| %>
+<div class="row justify-content-center">
 
-  <div>
-    <%= form.label :start_date, style: "display: block" %>
-    <%= form.text_field :start_date %>
-  </div>
+    <div class="col-xl-10 col-lg-12 col-md-9">
 
-  <div>
-    <%= form.label :end_date, style: "display: block" %>
-    <%= form.text_field :end_date %>
-  </div>
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg-6 d-none d-lg-block bg-leave-image"></div>
+                    <div class="col-lg-6">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Apply For Leave!</h1>
+                            </div>
+                            <%= form_with(model: @leave_application,class: "user") do |form| %>
+                                <div class="form-group">
+                                    <%= form.text_field :start_date,class:"form-control form-control-user",placeholder: "Enter Start Date in Format day/month/year" %>
+                               </div>
+                                <div class="form-group">
+                                    <%= form.text_field :end_date,class:"form-control form-control-user",placeholder: "Enter End Date in Format day/month/year" %>
+                               </div>
+                                <div class="form-floating">
+                                    <%= form.text_area :leave_reason,class: "form-control",id: "ProvideReason", placeholder: "Leave a comment here" %>
+                                    <%= form.label :leave_reason, 'ProvideReason' %>
+                                </div>
+                                <div class="form-group">
+                                    <%= form.label "LeaveType" %><br />
+                                   <%= form.select(:leave_type_id, LeaveType.pluck(:name, :id), {},{:class => "form-control form-control-user"}) %>
+                               </div>
+                                <%= form.hidden_field :status, value:"Pending" %>
+                                <%= form.hidden_field :description, value:"Leader has not responded" %>
+                                <%= form.hidden_field :user_id, value:current_user.id %>
+                                <%= form.submit "Apply Leave",class:"btn btn-primary btn-user btn-block" %>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-  <div>
-    <%= form.label :leave_reason, style: "display: block" %>
-    <%= form.text_area :leave_reason %>
-  </div>
+    </div>
 
-  <div>
-    <%= form.hidden_field :status, value:"Pending" %>
-  </div>
-
-  <div>
-    <%= form.hidden_field :description, value:"Leader has not responded" %>
-  </div>
-
-  <div>
-    <%= form.hidden_field :user_id, value:current_user.id %>
-  </div>
-
-  <div>
-    <%= form.submit "Apply Leave" %>
-  </div>
-<% end %>
+</div>
