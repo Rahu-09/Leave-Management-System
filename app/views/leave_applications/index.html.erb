@@ -1,9 +1,26 @@
-<h1>Hello World</h1>
-<%= current_user.role.name %>
+<%@leavetypes.each do |leavetype| %>
+  <h6><%= leavetype.name %></h6>
+    <% if @grp.length==0 %>
+      Leave Left:-<%= leavetype.max_limit %><br>
+    <% else %>
+    <% @grp.each do |key,value| %>
+      <% if leavetype.id==key %>
+        Leave Left:-<%= leavetype.max_limit-value %><br>
+        <% break %>
+      <%elsif leavetype.id<key %>
+        Leave Left:-<%= leavetype.max_limit %><br>
+        <% break %>
+      <%elsif @grp.keys.last==key %>
+        Leave Left:-<%= leavetype.max_limit %><br>
+        <% break %>
+      <% end %>
+    <% end %>
+    <% end %>
+    Total Leave:-<%= leavetype.max_limit %><br>
+  <% end %>
 <table class="table table-striped table-bordered table-hover">
     <thead class="thead-dark">
       <tr>
-        <th>User Id</th>
         <th>Start Date</th>
         <th>End Date</th>
         <th>Leave Reason</th>
@@ -18,7 +35,6 @@
       <% @leave_applications.each do |leave_application| %>
       <% if leave_application.user_id == current_user.id %>
         <tr>
-          <td><%= leave_application.user_id %></td>
           <td><%= leave_application.start_date %></td> 
           <td><%= leave_application.end_date %></td>
           <td><%= leave_application.leave_reason %></td>

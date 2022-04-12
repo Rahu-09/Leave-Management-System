@@ -6,7 +6,4 @@ class HomeController < ApplicationController
   def profile
   end
 
-  def holiday
-    @holidays=Holiday.all
-  end
 end

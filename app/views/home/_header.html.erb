@@ -17,13 +17,11 @@
         <%= link_to 'History Leave', leave_applications_path, class:"nav-link" %>
         </li>
         <li class="nav-item">
-        <%= link_to 'Holiday List', home_holiday_path, class:"nav-link" %>
+        <%= link_to 'Holiday List', holidays_path, class:"nav-link" %>
         </li>
-        <% unless current_user.role.name=="Admin" %>
-          <li class="nav-item">
-          <%= link_to 'Approve Leave', leave_applications_approver_path, class:"nav-link" %>
-          </li>
-        <% end %>
+        <li class="nav-item">
+        <%= link_to 'Approve Leave', leave_applications_approver_path, class:"nav-link" %>
+        </li>
         <li class="nav-item">
         <%= link_to "Sign Out", destroy_user_session_path , data: { "turbo-method": :delete }, class:"nav-link" %>
         </li>

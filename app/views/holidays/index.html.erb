@@ -1,3 +1,4 @@
+<%= link_to "Create Holiday", new_holiday_path,class: "btn btn-primary"%>
 <% @holidays.each do |holiday| %>
     <h1><%= holiday.name %></h1>
     <p>Start Date-<%= holiday.start_date %></p>

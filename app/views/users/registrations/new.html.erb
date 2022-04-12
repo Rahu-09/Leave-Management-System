@@ -1,9 +1,8 @@
-<div class="card o-hidden border-0 shadow-lg my-5">
+<div class="card o-hidden border-0 shadow-lg mx-auto  w-50">
     <div class="card-body p-0">
         <!-- Nested Row within Card Body -->
         <div class="row">
-            <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
-            <div class="col-lg-7">
+            <div class="col">
                 <div class="p-5">
                     <div class="text-center">
                         <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
@@ -12,10 +11,6 @@
                         <%= render "users/shared/error_messages", resource: resource %>
                         <div class="form-group">
                             <%= f.text_field :name,class:"form-control form-control-user",placeholder: "Enter Name" %>
-                        </div>
-                        <div class="form-group">
-                             <em>(<%= f.label "Role" %>)<br /></em>
-                            <%= f.select(:role_id, options_from_collection_for_select(@role, "id", "name"), {},{:class => "form-control form-control-user"}) %>
                         </div>
                         <div class="form-group">
                             <%= f.email_field :email, autofocus: true,class: "form-control form-control-user",placeholder: "Email Address", autocomplete: "email" %>

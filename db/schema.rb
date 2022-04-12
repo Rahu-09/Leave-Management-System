@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_09_073445) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_11_164039) do
   create_table "companies", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -31,13 +31,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_09_073445) do
   create_table "leave_applications", force: :cascade do |t|
     t.string "start_date"
     t.string "end_date"
-    t.integer "leave_type_id"
     t.text "leave_reason"
     t.string "status"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.integer "leave_type_id"
   end
 
   create_table "leave_types", force: :cascade do |t|
@@ -48,19 +48,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_09_073445) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "roles", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer "role_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "manager_id"

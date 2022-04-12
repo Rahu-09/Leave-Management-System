@@ -2,9 +2,9 @@ Rails.application.routes.draw do
   root 'home#index'
   devise_for :users, :controllers => { registrations: 'users/registrations' }
   get 'home/profile'
-  get 'home/holiday'
   get 'leave_applications/approver'
   resources :leave_applications
+  resources :holidays
   # get 'leave/index'
   # get 'leave/new'
   # post 'leave/new'
