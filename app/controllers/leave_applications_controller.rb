@@ -1,7 +1,7 @@
 require 'date'
 class LeaveApplicationsController < ApplicationController
     def index
-        @leave_applications = LeaveApplication.all
+        @leave_applications = User.find_by_id(current_user.id).leave_applications
         @leavetypes=LeaveType.all
         # @grp = ActiveRecord::Base.connection.execute("select leave_type_id, count(*) from leave_applications where user_id=#{current_user.id} group by leave_type_id")
         # @grp=User.find_by_id(current_user.id).leave_applications.group(:leave_type_id).count
@@ -10,7 +10,7 @@ class LeaveApplicationsController < ApplicationController
             @grp[leavetype.id]=0
         end
         @leave_applications.each do |leave_application|
-            @grp[leave_application.leave_type_id]+=(Date.parse('15-08-2000')-Date.parse('15-08-2000')).to_i+1
+            @grp[leave_application.leave_type_id]+=(Date.parse(leave_application.end_date)-Date.parse(leave_application.start_date)).to_i+1
         end
     end
     

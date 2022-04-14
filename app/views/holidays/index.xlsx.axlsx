@@ -1,0 +1,8 @@
+wb = xlsx_package.workbook
+
+wb.add_worksheet(name: "Sample Form") do |sheet|
+  # this is the head row of your spreadsheet
+  sheet.add_row %w(start_date end_date name description)
+  
+    sheet.add_row ["15th August 2022", "15th August 2022", "Independence Day", "India gained independence from British rule on August 15, 1947"]
+end

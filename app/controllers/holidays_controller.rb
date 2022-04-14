@@ -1,10 +1,19 @@
 class HolidaysController < ApplicationController
   def index
     @holidays=Holiday.all
+    respond_to do |format|
+      format.html
+      format.xlsx
+    end
   end
 
   def new
     @holiday = Holiday.new
+  end
+
+  def import
+    Holiday.import(params[:file])
+    redirect_to root_url, notice: "Holiday imported."
   end
 
   def create

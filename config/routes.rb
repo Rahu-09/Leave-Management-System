@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   get 'home/profile'
   get 'leave_applications/approver'
   resources :leave_applications
-  resources :holidays
+  resources :holidays do
+    collection { post :import}
+  end
   # get 'leave/index'
   # get 'leave/new'
   # post 'leave/new'

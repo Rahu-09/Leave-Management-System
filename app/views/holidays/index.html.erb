@@ -5,3 +5,12 @@
     <p>End Date:-<%= holiday.end_date %></p>
     <p>Description:-<%= holiday.description %></p>
 <% end %>
+
+<h2>Import Holidays</h2>
+
+<%= form_tag import_holidays_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>
+
+<%= link_to "Sample File", holidays_path(format: "xlsx") %>
